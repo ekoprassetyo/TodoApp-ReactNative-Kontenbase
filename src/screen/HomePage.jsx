@@ -18,20 +18,7 @@ export default function TodoList({ navigation }) {
   console.log(date);
   const convertDate = dateFormat(date, "yyyy-mm-dd");
   console.log(convertDate);
-  console.log(typeof convertDate);
-
-  const getTodos = async () => {
-    try {
-      const response = await axios.get("https://api.kontenbase.com/query/api/v1/c6c372e8-7fac-48ee-8da4-7dc97dfab45b/todos?$lookup=*");
-      setTodo(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getTodos();
-  }, []);
+  console.log(typeof convertDate); 
 
   //   Create Component List
   const _renderItem = ({ item }) => {
@@ -168,7 +155,7 @@ export default function TodoList({ navigation }) {
       <ScrollView flex="1">
         <VStack space={1} justifyContent="center" mx="6">
           <View>
-            <FlatList navigation={navigation} data={todos} renderItem={_renderItem} keyExtractor={(item) => item._id} />
+            {/* <FlatList navigation={navigation} data={todos} renderItem={_renderItem} keyExtractor={(item) => item._id} /> */}
           </View>
         </VStack>
       </ScrollView>
